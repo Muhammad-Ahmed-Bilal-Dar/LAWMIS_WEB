@@ -5,6 +5,18 @@ import pptaLogo from "./assets/PPTA-logo-landing.png";
 import punjabLogo from "./assets/punjab-logo-landing.png";
 import transportLogo from "./assets/transport-logo-landing.png";
 import nespakLogo from "./assets/nespak.png";
+import galleryImg1 from "./assets/gallery-img1.jpg";
+import galleryImg2 from "./assets/gallery-img2.jpg";
+import galleryImg3 from "./assets/gallery-img3.jpg";
+import galleryImg4 from "./assets/gallery-img4.jpg";
+import galleryImg5 from "./assets/gallery-img5.jpg";
+import galleryImg6 from "./assets/gallery-img6.jpg";
+import galleryImg7 from "./assets/gallery-img7.jpg";
+import galleryImg8 from "./assets/gallery-img8.jpg";
+import partnerIcon1 from "./assets/partner-icon1.jpg";
+import partnerIcon2 from "./assets/partner-icon2.jpg";
+import partnerIcon3 from "./assets/partner-icon3.jpg";
+import partnerIcon4 from "./assets/partner-icon4.jpg";
 
 const HomePage = () => {
   return (
@@ -17,19 +29,21 @@ const HomePage = () => {
       {/* Header & Navbar */}
       <header className="header">
         <div className="header-left">
-          <img src={pptaLogo} alt="PPTA Logo" className="header-logo header-logo-ppta" />
-          <div className="header-divider" />
+          
+          
           <img src={lawmisLogo} alt="LAWMIS Logo" className="header-logo header-logo-lawmis" />
         </div>
         <nav className="navbar">
           <a href="#" className="nav-link">ABOUT</a>
-          <a href="#" className="nav-link">FAQ</a>
+          <a href="#" className="nav-link">BECOME A VENDOR</a>
+          <a href="#" className="nav-link">STATION REGISTRATION</a>
           <a href="#" className="nav-link">PARTNER WORKSHOPS</a>
-          <button className="login-btn">LOGIN</button>
-          <button className="signup-btn">SIGNUP</button>
+        </nav>
+        <div className="header-logos-right">
+          <img src={pptaLogo} alt="PPTA Logo" className="header-logo header-logo-ppta" />
           <img src={transportLogo} alt="Transport Logo" className="header-logo header-logo-transport" />
           <img src={punjabLogo} alt="Punjab Logo" className="header-logo header-logo-punjab" />
-        </nav>
+        </div>
       </header>
 
       {/* Hero Section */}
@@ -77,9 +91,9 @@ const HomePage = () => {
       <section className="gallery-section">
         <h2 className="section-title">GALLERY</h2>
         <div className="gallery-grid">
-          {[1,2,3,4,5,6,7,8].map((i) => (
+          {[galleryImg1, galleryImg3, galleryImg2, galleryImg5, galleryImg4, galleryImg6, galleryImg8, galleryImg7].map((img, i) => (
             <div className="gallery-item" key={i}>
-              <img src={`https://i.ibb.co/6wQkQ7d/workshop-bg.jpg`} alt="Gallery" />
+              <img src={img} alt={`Gallery ${i+1}`} />
             </div>
           ))}
         </div>
@@ -113,19 +127,19 @@ const HomePage = () => {
         </select>
         <div className="workshops-grid">
           <div className="workshop-card">
-            <img src="https://i.ibb.co/6bQ7QpK/punjab-logo.png" alt="Workshop 1" />
+            <img src={partnerIcon1} alt="Workshop 1" />
             <div className="workshop-title">GHAZANFAR INSPECTION CENTER</div>
           </div>
           <div className="workshop-card">
-            <img src="https://i.ibb.co/6bQ7QpK/punjab-logo.png" alt="Workshop 2" />
+            <img src={partnerIcon2} alt="Workshop 2" />
             <div className="workshop-title">LAHORE INSPECTION AND FITNESS CENTER</div>
           </div>
           <div className="workshop-card">
-            <img src="https://i.ibb.co/6bQ7QpK/punjab-logo.png" alt="Workshop 3" />
+            <img src={partnerIcon3} alt="Workshop 3" />
             <div className="workshop-title">PAK SUZUKI AND FITNESS CENTER</div>
           </div>
           <div className="workshop-card">
-            <img src="https://i.ibb.co/6bQ7QpK/punjab-logo.png" alt="Workshop 4" />
+            <img src={partnerIcon4} alt="Workshop 4" />
             <div className="workshop-title">TOYOTA RAVI MOTORS INSPECTION CENTER</div>
           </div>
         </div>

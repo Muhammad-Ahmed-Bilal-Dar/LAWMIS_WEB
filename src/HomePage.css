@@ -20,76 +20,141 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
-  padding: 10px 40px 10px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  background: #ffffff;
+  padding: 0 32px;
+  min-height: 72px;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  position: relative;
+  z-index: 10;
 }
+
 .header-left {
   display: flex;
   align-items: center;
-  gap: 18px;
+  min-width: 340px;
 }
+
 .header-logo {
   display: inline-block;
   vertical-align: middle;
 }
+
 .header-logo-ppta {
   width: 70px;
   height: 70px;
 }
+
 .header-divider {
   width: 1px;
   height: 60px;
   background: #e6eaf3;
   margin: 0 18px;
 }
+
 .header-logo-lawmis {
-  height: 60px;
+  height: 64px;
   width: auto;
 }
+
 .header-logo-transport {
   width: 74px;
   height: 74px;
   margin-left: 24px;
 }
+
 .header-logo-punjab {
   width: 70px;
   height: 70px;
   margin-left: 10px;
 }
+
 .lawmis-info {
   display: flex;
   flex-direction: column;
 }
+
 .lawmis-title {
   font-weight: bold;
   font-size: 18px;
   color: #1a397b;
   letter-spacing: 1px;
 }
+
 .lawmis-desc {
   font-size: 11px;
   color: #1a397b;
   margin-top: 2px;
   letter-spacing: 0.5px;
 }
+
 .navbar {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 0;
+  background: transparent;
+  margin-left: auto;
 }
+
 .nav-link {
-  color: #222;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
-  font-size: 15px;
-  padding: 6px 10px;
-  border-radius: 3px;
-  transition: background 0.2s;
+  font-size: 1rem;
+  padding: 0 28px;
+  border-radius: 0;
+  background: transparent;
+  position: relative;
+  transition: color 0.2s;
+  letter-spacing: 0.2px;
+  box-shadow: none;
+  overflow: hidden;
+  line-height: 1.2;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #e5e5e5;
 }
-.nav-link:hover {
-  background: #e6eaf3;
+
+.nav-link:first-child {
+  border-left: none;
 }
+
+.nav-link::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 12px;
+  height: 2px;
+  background: linear-gradient(90deg, #1a8ed1 0%, #1a397b 100%);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: #1a8ed1;
+  background: transparent;
+}
+
+.nav-link:hover::after, .nav-link:focus::after {
+  transform: scaleX(1);
+}
+
+.header-logos-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 18px;
+}
+
+.header-logo-transport, .header-logo-punjab, .header-logo-ppta {
+  width: 38px;
+  height: 38px;
+  margin: 0 0 0 6px;
+}
+
 .login-btn, .signup-btn {
   margin-left: 10px;
   padding: 6px 18px;
@@ -100,15 +165,18 @@
   cursor: pointer;
   transition: background 0.2s;
 }
+
 .login-btn {
   background: #1a397b;
   color: #fff;
 }
+
 .signup-btn {
   background: #fff;
   color: #1a397b;
   border: 1.5px solid #1a397b;
 }
+
 .signup-btn:hover {
   background: #e6eaf3;
 }
@@ -122,6 +190,7 @@
   align-items: center;
   overflow: hidden;
 }
+
 .hero-bg {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -129,6 +198,7 @@
   z-index: 1;
   filter: brightness(0.7);
 }
+
 .hero-overlay {
   position: relative;
   z-index: 2;
@@ -136,16 +206,19 @@
   text-align: center;
   margin-bottom: 60px;
 }
+
 .hero-overlay h1 {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 8px;
 }
+
 .hero-overlay p {
   font-size: 1.05rem;
   font-weight: 400;
   letter-spacing: 0.5px;
 }
+
 .register-banner-btn {
   position: relative;
   z-index: 2;
@@ -163,6 +236,7 @@
   letter-spacing: 0.5px;
   margin-top: 10px;
 }
+
 .register-btn-inner {
   background: #fff;
   color: #1a8ed1;
@@ -178,6 +252,7 @@
   padding: 40px 0 30px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
+
 .about-content {
   display: flex;
   max-width: 1100px;
@@ -185,9 +260,11 @@
   align-items: flex-start;
   gap: 40px;
 }
+
 .about-left {
   flex: 2;
 }
+
 .download-link {
   color: #1a8ed1;
   font-size: 13px;
@@ -196,26 +273,31 @@
   display: inline-block;
   margin-bottom: 10px;
 }
+
 .about-blue {
   color: #1a8ed1;
 }
+
 .about-left h2 {
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
+
 .about-text {
   font-size: 14px;
   color: #222;
   line-height: 1.7;
   margin-top: 0;
 }
+
 .about-right {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .about-img {
   width: 320px;
   border-radius: 8px;
@@ -227,6 +309,7 @@
   padding: 30px 0 20px 0;
   text-align: center;
 }
+
 .section-title {
   font-size: 1.4rem;
   font-weight: 700;
@@ -234,12 +317,14 @@
   margin-bottom: 18px;
   letter-spacing: 0.5px;
 }
+
 .services-boxes {
   display: flex;
   justify-content: center;
   gap: 60px;
   margin-top: 10px;
 }
+
 .service-box {
   background: #fff;
   border-radius: 8px;
@@ -251,14 +336,17 @@
   align-items: center;
   transition: box-shadow 0.2s;
 }
+
 .service-box:hover {
   box-shadow: 0 4px 16px rgba(26,62,123,0.13);
 }
+
 .service-icon {
   font-size: 2.2rem;
   margin-bottom: 10px;
   color: #1a8ed1;
 }
+
 .service-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -270,6 +358,7 @@
   padding: 30px 0 20px 0;
   text-align: center;
 }
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -277,6 +366,7 @@
   max-width: 1100px;
   margin: 0 auto;
 }
+
 .gallery-item img {
   width: 100%;
   height: 140px;
@@ -293,15 +383,18 @@
   padding: 30px 0 18px 0;
   gap: 60px;
 }
+
 .stat-box {
   text-align: center;
   min-width: 160px;
 }
+
 .stat-number {
   font-size: 2.1rem;
   font-weight: 700;
   margin-bottom: 4px;
 }
+
 .stat-label {
   font-size: 1rem;
   font-weight: 500;
@@ -313,6 +406,7 @@
   padding: 30px 0 20px 0;
   text-align: center;
 }
+
 .district-select {
   margin: 0 auto 18px auto;
   padding: 7px 18px;
@@ -322,28 +416,37 @@
   color: #1a397b;
   font-weight: 600;
 }
+
 .workshops-grid {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   margin-top: 18px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .workshop-card {
   background: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  padding: 18px 24px 10px 24px;
-  min-width: 180px;
+  padding: 32px 32px 18px 32px;
+  min-width: 280px;
+  max-width: 320px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: box-shadow 0.2s;
 }
+
 .workshop-card img {
   width: 70px;
   height: 70px;
   margin-bottom: 10px;
 }
+
 .workshop-title {
   font-size: 1rem;
   font-weight: 600;
@@ -356,12 +459,14 @@
   padding: 30px 0 30px 0;
   text-align: center;
 }
+
 .faq-tabs {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-bottom: 18px;
 }
+
 .faq-tab {
   background: #e6eaf3;
   color: #1a397b;
@@ -373,25 +478,30 @@
   cursor: pointer;
   transition: background 0.2s;
 }
+
 .faq-tab.active, .faq-tab:hover {
   background: #1a397b;
   color: #fff;
 }
+
 .faq-list {
   max-width: 900px;
   margin: 0 auto;
   text-align: left;
 }
+
 .faq-item {
   border-bottom: 1px solid #e6eaf3;
   padding: 14px 0;
 }
+
 .faq-question {
   font-weight: 600;
   color: #1a397b;
   font-size: 15px;
   margin-bottom: 4px;
 }
+
 .faq-answer {
   color: #222;
   font-size: 14px;
@@ -409,11 +519,13 @@
   align-items: center;
   gap: 10px;
 }
+
 .footer-logo {
   width: 32px;
   height: 32px;
   margin: 0 8px;
 }
+
 .footer-logo-nespak {
   width: 48px;
   height: 48px;
@@ -430,14 +542,21 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 800px) {
-  .header, .about-content, .services-boxes, .workshops-grid, .stats-section {
+
+@media (max-width: 900px) {
+  .header {
     flex-direction: column;
     align-items: stretch;
-    gap: 18px;
+    padding: 12px 8px;
   }
-  .header {
-    padding: 10px 10px;
+  .navbar {
+    gap: 18px;
+    justify-content: center;
+  }
+  .header-logos-right {
+    margin-left: 0;
+    justify-content: center;
+    gap: 10px;
   }
   .about-img {
     width: 100%;
