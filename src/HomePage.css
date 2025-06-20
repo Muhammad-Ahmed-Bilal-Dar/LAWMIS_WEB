@@ -541,28 +541,194 @@
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .services-boxes {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  .workshops-grid {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
 }
 
 @media (max-width: 900px) {
   .header {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     padding: 12px 8px;
+    min-height: unset;
+  }
+  .header-left {
+    min-width: unset;
+    justify-content: center;
+    width: 100%;
+  }
+  .header-logo-lawmis {
+    height: 44px;
   }
   .navbar {
-    gap: 18px;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .nav-link {
+    width: 100%;
     justify-content: center;
+    border-left: none;
+    border-top: 1px solid #e5e5e5;
+    padding: 10px 0;
+    font-size: 0.98rem;
+    height: 44px;
+  }
+  .nav-link:first-child {
+    border-top: none;
   }
   .header-logos-right {
     margin-left: 0;
+    margin-top: 8px;
+    gap: 8px;
     justify-content: center;
-    gap: 10px;
+  }
+  .header-logo-transport, .header-logo-punjab, .header-logo-ppta {
+    width: 28px;
+    height: 28px;
+  }
+  .about-content {
+    flex-direction: column;
+    gap: 18px;
+    max-width: 98vw;
+    align-items: stretch;
   }
   .about-img {
     width: 100%;
     max-width: 220px;
+    margin: 0 auto;
   }
   .gallery-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .workshops-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-width: 98vw;
+  }
+  .workshop-card {
+    min-width: 0;
+    max-width: 98vw;
+    width: 100%;
+    padding: 18px 8px 10px 8px;
+  }
+  .stats-section {
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px 0 10px 0;
+  }
+  .faq-tabs {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .faq-list {
+    max-width: 98vw;
+    padding: 0 4vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 6px 2vw;
+  }
+  .header-logo-lawmis {
+    height: 32px;
+  }
+  .nav-link {
+    font-size: 0.92rem;
+    height: 38px;
+    padding: 8px 0;
+  }
+  .header-logos-right {
+    gap: 4px;
+  }
+  .hero-section {
+    height: 180px;
+    padding: 0;
+  }
+  .hero-overlay h1 {
+    font-size: 1.1rem;
+  }
+  .hero-overlay p {
+    font-size: 0.85rem;
+  }
+  .register-banner-btn {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .about-section, .services-section, .gallery-section, .workshops-section, .faq-section {
+    padding: 16px 0 10px 0;
+  }
+  .section-title {
+    font-size: 1.1rem;
+  }
+  .service-box {
+    min-width: 0;
+    padding: 14px 8px;
+  }
+  .gallery-item img {
+    height: 90px;
+  }
+  .workshop-card img {
+    width: 48px;
+    height: 48px;
+  }
+  .workshop-title {
+    font-size: 0.95rem;
+  }
+  .faq-question, .faq-answer {
+    font-size: 0.92rem;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    padding: 8px 0 6px 0;
+  }
+  .footer-logo, .footer-logo-nespak {
+    width: 28px;
+    height: 28px;
+    margin: 0 4px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    padding: 2px 1vw;
+  }
+  .header-logo-lawmis {
+    height: 22px;
+  }
+  .nav-link {
+    font-size: 0.85rem;
+    height: 32px;
+    padding: 6px 0;
+  }
+  .register-banner-btn {
+    font-size: 10px;
+    padding: 6px 4px;
+  }
+  .about-img {
+    max-width: 120px;
+  }
+  .gallery-item img {
+    height: 60px;
+  }
+  .workshop-card img {
+    width: 32px;
+    height: 32px;
   }
 } 
