@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import heroBg from "./assets/hero-slider-bg.jpg";
+import heroBg2 from "./assets/hero-slider-bg2.jpg";
 import lawmisLogo from "./assets/lawmis logo.png";
 import pptaLogo from "./assets/PPTA-logo-landing.png";
 import punjabLogo from "./assets/punjab-logo-landing.png";
@@ -18,7 +19,21 @@ import partnerIcon2 from "./assets/partner-icon2.jpg";
 import partnerIcon3 from "./assets/partner-icon3.jpg";
 import partnerIcon4 from "./assets/partner-icon4.jpg";
 
+const heroImages = [heroBg, heroBg2];
+
 const HomePage = () => {
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToPrev = () => setHeroIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  const goToNext = () => setHeroIndex((prev) => (prev + 1) % heroImages.length);
+
   return (
     <div className="homepage">
       {/* Top Bar */}
@@ -29,8 +44,6 @@ const HomePage = () => {
       {/* Header & Navbar */}
       <header className="header">
         <div className="header-left">
-          
-          
           <img src={lawmisLogo} alt="LAWMIS Logo" className="header-logo header-logo-lawmis" />
         </div>
         <nav className="navbar">
@@ -48,13 +61,57 @@ const HomePage = () => {
 
       {/* Hero Section */}
       <section className="hero-section">
-        <img className="hero-bg" src={heroBg} alt="Workshop" />
-        <div className="hero-overlay">
-          <h1>Licensed Automobile Workshop</h1>
-          <p>FRAMEWORK FOR GRANT OF LICENSE TO AUTOMOBILE WORKSHOPS<br />FOR CONDUCTING VEHICLE INSPECTION AND FITNESS CERTIFICATION FOR MOTOR CARS</p>
+        <div className="hero-slider-container">
+          {heroImages.map((img, idx) => (
+            <img
+              key={idx}
+              className="hero-bg"
+              src={img}
+              alt="Workshop Hero"
+              style={{
+                transform: `translateX(${100 * (idx - heroIndex)}%)`,
+                transition: 'transform 1s cubic-bezier(.4,0,.2,1)',
+                zIndex: idx === heroIndex ? 2 : 1
+              }}
+            />
+          ))}
+          <button className="hero-arrow hero-arrow-left" onClick={goToPrev} aria-label="Previous Slide">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="16" fill="rgba(0,0,0,0.35)"/>
+              <path d="M18.5 10L13 16L18.5 22" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <button className="hero-arrow hero-arrow-right" onClick={goToNext} aria-label="Next Slide">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="16" fill="rgba(0,0,0,0.35)"/>
+              <path d="M13.5 10L19 16L13.5 22" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
-        <button className="register-banner-btn">BECOME OUR VALUABLE PARTNERS AND REGISTER YOUR WORKSHOP FOR LAWMIS SERVICES <span className="register-btn-inner">REGISTER WORKSHOP</span></button>
+        {heroIndex === 0 && (
+          <div className="hero-overlay">
+            <h1>Licensed Automobile Workshop</h1>
+            <p>FRAMEWORK FOR GRANT OF LICENSE TO AUTOMOBILE WORKSHOPS<br />FOR CONDUCTING VEHICLE INSPECTION AND FITNESS CERTIFICATION FOR MOTOR CARS</p>
+          </div>
+        )}
+        <div className="hero-slider-dots">
+          {heroImages.map((_, idx) => (
+            <span
+              key={idx}
+              className={`hero-dot${heroIndex === idx ? ' active' : ''}`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
       </section>
+
+      {/* Register Strip Section */}
+      <div className="register-strip">
+        <span className="register-strip-text">
+          BECOME OUR VALUABLE PARTNERS AND REGISTER YOUR WORKSHOP FOR LAWMIS SERVICES
+        </span>
+        <button className="register-strip-btn">REGISTER WORKSHOP</button>
+      </div>
 
       {/* About Section */}
       <section className="about-section">
@@ -169,7 +226,7 @@ const HomePage = () => {
       <footer className="footer">
         <span>POWERED BY</span>
         <img src={nespakLogo} alt="Nespak Logo" className="footer-logo footer-logo-nespak" />
-        <span>PUNJAB INFORMATION TECHNOLOGY BOARD-PITB</span>
+        <span>National Engineering Services Pakistan</span>
       </footer>
     </div>
   );

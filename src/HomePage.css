@@ -191,6 +191,13 @@
   overflow: hidden;
 }
 
+.hero-slider-container {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
 .hero-bg {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -201,7 +208,7 @@
 
 .hero-overlay {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   color: #fff;
   text-align: center;
   margin-bottom: 60px;
@@ -533,6 +540,113 @@
   vertical-align: middle;
 }
 
+.hero-slider-dots {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.hero-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: 2px solid #1a8ed1;
+  transition: background 0.3s, transform 0.3s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.hero-dot.active {
+  background: #1a8ed1;
+  transform: scale(1.2);
+  box-shadow: 0 0 6px #1a8ed1aa;
+}
+
+.register-strip {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #0597ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 32px;
+  gap: 18px;
+  position: relative;
+  z-index: 5;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+.register-strip-text {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+}
+
+.register-strip-btn {
+  background: #fff;
+  color: #222;
+  font-weight: 500;
+  font-size: 1.08rem;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 26px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin: 0;
+  vertical-align: middle;
+}
+
+.register-strip-btn:hover {
+  background: #1a8ed1;
+  color: #fff;
+}
+
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-arrow-left {
+  left: 24px;
+}
+.hero-arrow-right {
+  right: 24px;
+}
+.hero-section:hover .hero-arrow,
+.hero-arrow:focus {
+  opacity: 1;
+}
+.hero-arrow svg {
+  display: block;
+  pointer-events: none;
+}
+.hero-arrow:active svg circle,
+.hero-arrow:focus svg circle {
+  fill: #1a8ed1;
+}
+
 @media (max-width: 1100px) {
   .about-content, .gallery-grid {
     max-width: 98vw;
@@ -549,6 +663,14 @@
   .workshops-grid {
     flex-wrap: wrap;
     gap: 18px;
+  }
+  .register-strip {
+    max-width: 98vw;
+    padding: 14px 20px;
+    gap: 16px;
+  }
+  .register-strip-text {
+    font-size: 1.05rem;
   }
 }
 
@@ -638,6 +760,32 @@
     max-width: 98vw;
     padding: 0 4vw;
   }
+  .register-strip {
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 8px;
+    gap: 10px;
+  }
+  .register-strip-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+  .register-strip-text {
+    font-size: 1.05rem;
+  }
+  .hero-arrow {
+    opacity: 1;
+    left: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+  }
+  .hero-arrow-left {
+    left: 8px;
+  }
+  .hero-arrow-right {
+    right: 8px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -702,6 +850,26 @@
     width: 28px;
     height: 28px;
     margin: 0 4px;
+  }
+  .hero-slider-dots {
+    bottom: 8px;
+    gap: 6px;
+  }
+  .hero-dot {
+    width: 8px;
+    height: 8px;
+  }
+  .register-strip {
+    padding: 8px 2px;
+  }
+  .register-strip-btn {
+    font-size: 0.95rem;
+    padding: 8px 0;
+    width: 100%;
+    max-width: 100vw;
+  }
+  .register-strip-text {
+    font-size: 0.92rem;
   }
 }
 
