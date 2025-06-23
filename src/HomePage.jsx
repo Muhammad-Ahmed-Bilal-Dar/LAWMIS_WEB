@@ -89,10 +89,10 @@ const HomePage = () => {
           </button>
         </div>
         {heroIndex === 0 && (
-          <div className="hero-overlay">
-            <h1>Licensed Automobile Workshop</h1>
-            <p>FRAMEWORK FOR GRANT OF LICENSE TO AUTOMOBILE WORKSHOPS<br />FOR CONDUCTING VEHICLE INSPECTION AND FITNESS CERTIFICATION FOR MOTOR CARS</p>
-          </div>
+        <div className="hero-overlay">
+          <h1>Licensed Automobile Workshop</h1>
+          <p>FRAMEWORK FOR GRANT OF LICENSE TO AUTOMOBILE WORKSHOPS<br />FOR CONDUCTING VEHICLE INSPECTION AND FITNESS CERTIFICATION FOR MOTOR CARS</p>
+        </div>
         )}
         <div className="hero-slider-dots">
           {heroImages.map((_, idx) => (
